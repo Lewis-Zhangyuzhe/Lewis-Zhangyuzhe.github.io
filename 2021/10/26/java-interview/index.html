@@ -16,8 +16,10 @@
 <meta property="og:description" content="Java BasicsJava Primitive typePrimitive data types are predefined by the language and named by a keyword.8 types: byte, short, int, long, float, double, boolean, char Java Reference typeString, String">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/10/26/images/collection.png">
+<meta property="og:image" content="http://example.com/2021/10/26/images/hashMapTable.png">
+<meta property="og:image" content="http://example.com/2021/10/26/images/currenthashmap.png">
 <meta property="article:published_time" content="2021-10-27T04:55:44.000Z">
-<meta property="article:modified_time" content="2021-10-28T21:37:00.097Z">
+<meta property="article:modified_time" content="2021-10-29T23:22:27.022Z">
 <meta property="article:author" content="Lewis Zhang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2021/10/26/images/collection.png">
@@ -212,6 +214,82 @@
 <li>Simply, a deadlock occurs when one thread lock resource A and is waiting for resource B, while at the same time, another thread lock resource B and is waiting for resource A</li>
 </ul>
 <h3 id="Collection-and-Collections"><a href="#Collection-and-Collections" class="headerlink" title="Collection and Collections"></a>Collection and Collections</h3><p><img src="../images/collection.png" alt="Collection"></p>
+<ol>
+<li>Collection</li>
+</ol>
+<ul>
+<li>Collection framework is a combination of classes and interface, which is used to store and manipulate data in form of objects. It provides various classes such as ArrayList, HashSet, PriorityQueue, etc. and interface such as List, Queue, Set, etc.</li>
+<li></li>
+</ul>
+<ol start="2">
+<li>Collections:</li>
+</ol>
+<ul>
+<li>Collections is a utility class under util package, and it cannot be instantiated. This class consists exclusively of static methods that operate on or return collections, like sort(), reverse().</li>
+<li>Collections framework is consist of the interfaces and classes which helps in working with different types of collections such as lists, sets, maps, stacks and queues etc.</li>
+</ul>
+<h3 id="ArrayList-and-LinkedList"><a href="#ArrayList-and-LinkedList" class="headerlink" title="ArrayList and LinkedList"></a>ArrayList and LinkedList</h3><ol>
+<li>ArrayList:</li>
+</ol>
+<ul>
+<li>Based on dynamic array</li>
+<li>Better to store and fetch data</li>
+<li>Use less memory overhead as it stores only objects</li>
+</ul>
+<ol start="2">
+<li>LinkedList:</li>
+</ol>
+<ul>
+<li>Based on doubly linked list</li>
+<li>Better to manipulate data(add, remove)</li>
+<li>Use more memory as it stores object and its address</li>
+</ul>
+<h3 id="List-and-Set"><a href="#List-and-Set" class="headerlink" title="List and Set"></a>List and Set</h3><ul>
+<li>List can contain duplicate elements while Set includes unique items</li>
+<li>List is an ordered collection whereas Set is unordered</li>
+</ul>
+<h3 id="HashMap-and-HashTable-difference-and-underlying-implementation"><a href="#HashMap-and-HashTable-difference-and-underlying-implementation" class="headerlink" title="HashMap and HashTable(difference and underlying implementation)"></a>HashMap and HashTable(difference and underlying implementation)</h3><p><img src="../images/hashMapTable.png" alt="Difference"><br><img src="../images/currenthashmap.png" alt="Concurrent"></p>
+<ol>
+<li>HashMap:</li>
+</ol>
+<ul>
+<li>可以使用 null 的 key/value</li>
+<li>Thread safe</li>
+<li>Efficient as no lock mechanism</li>
+</ul>
+<ol start="2">
+<li>HashTable(现在不怎么用了，都用 ConcurrentHashMap):</li>
+</ol>
+<ul>
+<li>里面的 function 都用了一个 synchronized, so thread safe</li>
+<li>As its mechanism to lock the whole map, it is less efficient</li>
+</ul>
+<ol start="3">
+<li>ConcurrentHashMap</li>
+</ol>
+<ul>
+<li>It combines the safety of hashtable and efficiency of hashmap.<br>It uses multiple locks on segment level（分段锁）. 使用时只会 lock 对应的 segment，而不是整个 map，这样大大地提高了效率</li>
+</ul>
+<p>Get, Put 的时间复杂度<br>最优情况 O(1)<br>最坏情况 O(n): 全部 collide, 在一条链表上， 如果是红黑树的情况，则是 O(logn)</p>
+<p>底层实现：数组+链表实现<br>JDK8 开始链表高度到 8、数组长度超过 64，链表自动变为红黑树（一种自平衡的 BST），元素以内部类 Node 节点存在</p>
+<ul>
+<li>计算 key 的 hash(用一个叫 hashcode 的方法)值，二次 hash 然后对数组长度取模，然后找到对应的数组下标</li>
+<li>如果没有产生 hash collision,则直接创建 node 加入数组</li>
+<li>如果产生 hash collision, 先进行 equal 比较，如果是相同对象则覆盖它; 反之判断链表高度并插入链表的尾部(即是 chaining 方法)，当链表高度达到 8，并且数组长度达到 64 时，链表自动转为红黑树，长度低于 6 则转变回来</li>
+<li>Key 为 null 时，存在下标为 0 的位置</li>
+</ul>
+<p><strong>How to resolve hash collision</strong></p>
+<ul>
+<li>Open addressing</li>
+</ul>
+<ol>
+<li>Linear probing(找有冲突的 index 之后的,like index + 1, then index +2…)</li>
+<li>Quadratic probing(index + 1^2/2^2/3^2 …)</li>
+</ol>
+<ul>
+<li>Chaining(that is using the linkedlist)</li>
+<li>Double hashing</li>
+</ul>
 
       
 

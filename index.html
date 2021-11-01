@@ -285,6 +285,82 @@
 <li>Simply, a deadlock occurs when one thread lock resource A and is waiting for resource B, while at the same time, another thread lock resource B and is waiting for resource A</li>
 </ul>
 <h3 id="Collection-and-Collections"><a href="#Collection-and-Collections" class="headerlink" title="Collection and Collections"></a>Collection and Collections</h3><p><img src="../images/collection.png" alt="Collection"></p>
+<ol>
+<li>Collection</li>
+</ol>
+<ul>
+<li>Collection framework is a combination of classes and interface, which is used to store and manipulate data in form of objects. It provides various classes such as ArrayList, HashSet, PriorityQueue, etc. and interface such as List, Queue, Set, etc.</li>
+<li></li>
+</ul>
+<ol start="2">
+<li>Collections:</li>
+</ol>
+<ul>
+<li>Collections is a utility class under util package, and it cannot be instantiated. This class consists exclusively of static methods that operate on or return collections, like sort(), reverse().</li>
+<li>Collections framework is consist of the interfaces and classes which helps in working with different types of collections such as lists, sets, maps, stacks and queues etc.</li>
+</ul>
+<h3 id="ArrayList-and-LinkedList"><a href="#ArrayList-and-LinkedList" class="headerlink" title="ArrayList and LinkedList"></a>ArrayList and LinkedList</h3><ol>
+<li>ArrayList:</li>
+</ol>
+<ul>
+<li>Based on dynamic array</li>
+<li>Better to store and fetch data</li>
+<li>Use less memory overhead as it stores only objects</li>
+</ul>
+<ol start="2">
+<li>LinkedList:</li>
+</ol>
+<ul>
+<li>Based on doubly linked list</li>
+<li>Better to manipulate data(add, remove)</li>
+<li>Use more memory as it stores object and its address</li>
+</ul>
+<h3 id="List-and-Set"><a href="#List-and-Set" class="headerlink" title="List and Set"></a>List and Set</h3><ul>
+<li>List can contain duplicate elements while Set includes unique items</li>
+<li>List is an ordered collection whereas Set is unordered</li>
+</ul>
+<h3 id="HashMap-and-HashTable-difference-and-underlying-implementation"><a href="#HashMap-and-HashTable-difference-and-underlying-implementation" class="headerlink" title="HashMap and HashTable(difference and underlying implementation)"></a>HashMap and HashTable(difference and underlying implementation)</h3><p><img src="../images/hashMapTable.png" alt="Difference"><br><img src="../images/currenthashmap.png" alt="Concurrent"></p>
+<ol>
+<li>HashMap:</li>
+</ol>
+<ul>
+<li>可以使用 null 的 key/value</li>
+<li>Thread safe</li>
+<li>Efficient as no lock mechanism</li>
+</ul>
+<ol start="2">
+<li>HashTable(现在不怎么用了，都用 ConcurrentHashMap):</li>
+</ol>
+<ul>
+<li>里面的 function 都用了一个 synchronized, so thread safe</li>
+<li>As its mechanism to lock the whole map, it is less efficient</li>
+</ul>
+<ol start="3">
+<li>ConcurrentHashMap</li>
+</ol>
+<ul>
+<li>It combines the safety of hashtable and efficiency of hashmap.<br>It uses multiple locks on segment level（分段锁）. 使用时只会 lock 对应的 segment，而不是整个 map，这样大大地提高了效率</li>
+</ul>
+<p>Get, Put 的时间复杂度<br>最优情况 O(1)<br>最坏情况 O(n): 全部 collide, 在一条链表上， 如果是红黑树的情况，则是 O(logn)</p>
+<p>底层实现：数组+链表实现<br>JDK8 开始链表高度到 8、数组长度超过 64，链表自动变为红黑树（一种自平衡的 BST），元素以内部类 Node 节点存在</p>
+<ul>
+<li>计算 key 的 hash(用一个叫 hashcode 的方法)值，二次 hash 然后对数组长度取模，然后找到对应的数组下标</li>
+<li>如果没有产生 hash collision,则直接创建 node 加入数组</li>
+<li>如果产生 hash collision, 先进行 equal 比较，如果是相同对象则覆盖它; 反之判断链表高度并插入链表的尾部(即是 chaining 方法)，当链表高度达到 8，并且数组长度达到 64 时，链表自动转为红黑树，长度低于 6 则转变回来</li>
+<li>Key 为 null 时，存在下标为 0 的位置</li>
+</ul>
+<p><strong>How to resolve hash collision</strong></p>
+<ul>
+<li>Open addressing</li>
+</ul>
+<ol>
+<li>Linear probing(找有冲突的 index 之后的,like index + 1, then index +2…)</li>
+<li>Quadratic probing(index + 1^2/2^2/3^2 …)</li>
+</ol>
+<ul>
+<li>Chaining(that is using the linkedlist)</li>
+<li>Double hashing</li>
+</ul>
 
       
 
@@ -347,7 +423,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="LC-Solutions"><a href="#LC-Solutions" class="headerlink" title="LC Solutions"></a>LC Solutions</h1><h2 id="LC-50"><a href="#LC-50" class="headerlink" title="LC 50"></a>LC 50</h2><h2 id="LC-97"><a href="#LC-97" class="headerlink" title="LC 97"></a>LC 97</h2><h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h3><h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h3><h2 id="LC-101"><a href="#LC-101" class="headerlink" title="LC 101"></a>LC 101</h2>
+        <h1 id="LC-Solutions"><a href="#LC-Solutions" class="headerlink" title="LC Solutions"></a>LC Solutions</h1><h2 id="LC-39-Combination-Sum-backtracking-dfs"><a href="#LC-39-Combination-Sum-backtracking-dfs" class="headerlink" title="LC 39 - Combination Sum(backtracking, dfs)"></a>LC 39 - Combination Sum(backtracking, dfs)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">        Arrays.sort(candidates);</span><br><span class="line">        dfs(res, list, candidates, target, 0);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void dfs(List&lt;List&lt;Integer&gt;&gt; res,</span><br><span class="line">                   List&lt;Integer&gt; list,</span><br><span class="line">                   int[] candidates,</span><br><span class="line">                   int target,</span><br><span class="line">                   int start) &#123;</span><br><span class="line">        // exit</span><br><span class="line">        if (target &lt; 0) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125; else if (target == 0) &#123;</span><br><span class="line">            res.add(new ArrayList&lt;&gt;(list));</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            for (int i = start; i &lt; candidates.length; i++) &#123;</span><br><span class="line">                list.add(candidates[i]);</span><br><span class="line">                dfs(res, list, candidates, target - candidates[i], i);</span><br><span class="line">                list.remove(list.size() - 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LC-46-Permutations-backtracking-dfs-元素-unique"><a href="#LC-46-Permutations-backtracking-dfs-元素-unique" class="headerlink" title="LC 46 - Permutations(backtracking, dfs, 元素 unique)"></a>LC 46 - Permutations(backtracking, dfs, 元素 unique)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">        dfs(res, list, nums);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void dfs(List&lt;List&lt;Integer&gt;&gt; res,</span><br><span class="line">                   List&lt;Integer&gt; list,</span><br><span class="line">                   int[] nums) &#123;</span><br><span class="line">        if (list.size() == nums.length) &#123;</span><br><span class="line">            res.add(new ArrayList&lt;&gt;(list));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">            if (list.contains(nums[i])) &#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                list.add(nums[i]);</span><br><span class="line">                dfs(res, list, nums);</span><br><span class="line">                list.remove(list.size() - 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LC-78-Subsets-backtracking-dfs"><a href="#LC-78-Subsets-backtracking-dfs" class="headerlink" title="LC 78 - Subsets (backtracking, dfs)"></a>LC 78 - Subsets (backtracking, dfs)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        backTrack(res, list, nums, 0);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void backTrack(List&lt;List&lt;Integer&gt;&gt; res,</span><br><span class="line">                         List&lt;Integer&gt; list,</span><br><span class="line">                         int[] nums,</span><br><span class="line">                         int pos) &#123;</span><br><span class="line">        res.add(new ArrayList&lt;&gt;(list));</span><br><span class="line">        for (int i = pos; i &lt; nums.length; i++) &#123;</span><br><span class="line">            list.add(nums[i]);</span><br><span class="line">            backTrack(res, list , nums, i + 1);</span><br><span class="line">            list.remove(list.size() - 1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LC-79-Word-Search-dfs"><a href="#LC-79-Word-Search-dfs" class="headerlink" title="LC 79 - Word Search (dfs)"></a>LC 79 - Word Search (dfs)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public boolean exist(char[][] board, String word) &#123;</span><br><span class="line">        if (board == null || board.length == 0 || board[0].length == 0 || board.length * board[0].length &lt; word.length()) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (word.length() == 0) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; board.length; i++) &#123;</span><br><span class="line">            for (int j = 0; j &lt; board[0].length; j++) &#123;</span><br><span class="line">                if (board[i][j] == word.charAt(0)) &#123;</span><br><span class="line">                    boolean res = dfs(board, i, j, word, 0);</span><br><span class="line">                    if (res) return true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean dfs(char[][] board, int i, int j, String word, int index) &#123;</span><br><span class="line">        //出口</span><br><span class="line">        if (index == word.length()) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (i &lt; 0 || i == board.length || j &lt; 0 || j == board[0].length || board[i][j] != word.charAt(index)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        board[i][j] = &#x27;#&#x27;;</span><br><span class="line">        boolean res = dfs(board, i+1, j, word, index + 1) ||</span><br><span class="line">                    dfs(board, i-1, j, word, index + 1) ||</span><br><span class="line">                    dfs(board, i, j+1, word, index + 1) ||</span><br><span class="line">                    dfs(board, i, j-1, word, index + 1);</span><br><span class="line">        board[i][j] = word.charAt(index);</span><br><span class="line"></span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
