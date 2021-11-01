@@ -6,21 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>leetcode | Lewis Blog</title>
+  <title>Archives: 2021/11 | Lewis Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LC SolutionsLC 20 - Valid Parentheses (stack)1234567891011121314151617181920212223class Solution &amp;#123;    public boolean isValid(String s) &amp;#123;        &#x2F;&#x2F; It is a typical problem to use stack">
-<meta property="og:type" content="article">
-<meta property="og:title" content="leetcode">
-<meta property="og:url" content="http://example.com/2021/10/26/leetcode/index.html">
+  <meta name="description" content="Day day up">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lewis Blog">
+<meta property="og:url" content="http://example.com/archives/2021/11/index.html">
 <meta property="og:site_name" content="Lewis Blog">
-<meta property="og:description" content="LC SolutionsLC 20 - Valid Parentheses (stack)1234567891011121314151617181920212223class Solution &amp;#123;    public boolean isValid(String s) &amp;#123;        &#x2F;&#x2F; It is a typical problem to use stack">
+<meta property="og:description" content="Day day up">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-10-27T04:38:20.000Z">
-<meta property="article:modified_time" content="2021-11-01T05:50:25.169Z">
 <meta property="article:author" content="Lewis Zhang">
-<meta property="article:tag" content="interview">
-<meta property="article:tag" content="coding">
-<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Lewis Blog" type="application/atom+xml">
@@ -165,220 +160,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      leetcode
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/11/01/Amazon/primeupdiscount/" class="archive-article-date">
+  	<time datetime="2021-11-01T20:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/11/01/Amazon/primeupdiscount/">primeupdiscount</a>
     </h1>
   
 
-        
-        <a href="/2021/10/26/leetcode/" class="archive-article-date">
-  	<time datetime="2021-10-27T04:38:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="LC-Solutions"><a href="#LC-Solutions" class="headerlink" title="LC Solutions"></a>LC Solutions</h1><h2 id="LC-20-Valid-Parentheses-stack"><a href="#LC-20-Valid-Parentheses-stack" class="headerlink" title="LC 20 - Valid Parentheses (stack)"></a>LC 20 - Valid Parentheses (stack)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">    public boolean isValid(String s) &#123;</span><br><span class="line">        // It is a typical problem to use stack</span><br><span class="line">        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        for (Character c: s.toCharArray()) &#123;</span><br><span class="line">            if (&quot;([&#123;&quot;.contains(String.valueOf(c))) &#123;</span><br><span class="line">                stack.push(c);</span><br><span class="line">            &#125; else if (!stack.isEmpty() &amp;&amp; isValid(stack.peek(), c)) &#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return stack.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean isValid(char c1, char c2) &#123;</span><br><span class="line">        return c1 == &#x27;(&#x27; &amp;&amp; c2 == &#x27;)&#x27; || c1 == &#x27;[&#x27; &amp;&amp; c2 == &#x27;]&#x27; || c1 == &#x27;&#123;&#x27; &amp;&amp; c2 == &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <div class="article-info info-on-right">
+          
+          
 
-<h2 id="LC-23-Merge-K-sorted-lists-priorityQueue-minhea"><a href="#LC-23-Merge-K-sorted-lists-priorityQueue-minhea" class="headerlink" title="LC 23 - Merge K sorted lists(priorityQueue, minhea)"></a>LC 23 - Merge K sorted lists(priorityQueue, minhea)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode() &#123;&#125;</span><br><span class="line"> *     ListNode(int val) &#123; this.val = val; &#125;</span><br><span class="line"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode mergeKLists(ListNode[] lists) &#123;</span><br><span class="line">        if (lists == null || lists.length == 0) &#123;</span><br><span class="line">             return null;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        PriorityQueue&lt;ListNode&gt; heap = new PriorityQueue&lt;&gt;(lists.length, new Comparator&lt;&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public int compare(ListNode a, ListNode b) &#123;</span><br><span class="line">                return a.val - b.val;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        for (ListNode head: lists) &#123;</span><br><span class="line">            if (head != null) &#123;</span><br><span class="line">                heap.offer(head);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode dummy = new ListNode(0);</span><br><span class="line">        ListNode cur = dummy;</span><br><span class="line"></span><br><span class="line">        while(!heap.isEmpty()) &#123;</span><br><span class="line">            ListNode head = heap.poll();</span><br><span class="line">            cur.next = head;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            if (head.next != null) &#123;</span><br><span class="line">                heap.offer(head.next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-39-Combination-Sum-backtracking-dfs"><a href="#LC-39-Combination-Sum-backtracking-dfs" class="headerlink" title="LC 39 - Combination Sum(backtracking, dfs)"></a>LC 39 - Combination Sum(backtracking, dfs)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123;</span><br><span class="line">List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">Arrays.sort(candidates);</span><br><span class="line">dfs(res, list, candidates, target, 0);</span><br><span class="line">return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    public void dfs(List&lt;List&lt;Integer&gt;&gt; res,</span><br><span class="line">                   List&lt;Integer&gt; list,</span><br><span class="line">                   int[] candidates,</span><br><span class="line">                   int target,</span><br><span class="line">                   int start) &#123;</span><br><span class="line">        // exit</span><br><span class="line">        if (target &lt; 0) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125; else if (target == 0) &#123;</span><br><span class="line">            res.add(new ArrayList&lt;&gt;(list));</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            for (int i = start; i &lt; candidates.length; i++) &#123;</span><br><span class="line">                list.add(candidates[i]);</span><br><span class="line">                dfs(res, list, candidates, target - candidates[i], i);</span><br><span class="line">                list.remove(list.size() - 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-46-Permutations-backtracking-dfs-元素-unique"><a href="#LC-46-Permutations-backtracking-dfs-元素-unique" class="headerlink" title="LC 46 - Permutations(backtracking, dfs, 元素 unique)"></a>LC 46 - Permutations(backtracking, dfs, 元素 unique)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) &#123;</span><br><span class="line">List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">dfs(res, list, nums);</span><br><span class="line">return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    public void dfs(List&lt;List&lt;Integer&gt;&gt; res,</span><br><span class="line">                   List&lt;Integer&gt; list,</span><br><span class="line">                   int[] nums) &#123;</span><br><span class="line">        if (list.size() == nums.length) &#123;</span><br><span class="line">            res.add(new ArrayList&lt;&gt;(list));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">            if (list.contains(nums[i])) &#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                list.add(nums[i]);</span><br><span class="line">                dfs(res, list, nums);</span><br><span class="line">                list.remove(list.size() - 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-54-Spiral-Matrix-模拟-array"><a href="#LC-54-Spiral-Matrix-模拟-array" class="headerlink" title="LC 54 - Spiral Matrix(模拟 array)"></a>LC 54 - Spiral Matrix(模拟 array)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;Integer&gt; spiralOrder(int[][] matrix) &#123;</span><br><span class="line">        List&lt;Integer&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) &#123;</span><br><span class="line">            return res;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int row = matrix.length;</span><br><span class="line">        int col = matrix[0].length;</span><br><span class="line">        int left = 0;</span><br><span class="line">        int up = 0;</span><br><span class="line">        int right = col - 1;</span><br><span class="line">        int down = row - 1;</span><br><span class="line"></span><br><span class="line">        int i = 0, j = 0;</span><br><span class="line"></span><br><span class="line">        while(left &lt;= right &amp;&amp; up &lt;= down) &#123;</span><br><span class="line">            // go right</span><br><span class="line">            for (j = left; j &lt;= right &amp;&amp; up &lt;= down; j++) &#123;</span><br><span class="line">                res.add(matrix[up][j]);</span><br><span class="line">            &#125;</span><br><span class="line">            up++;</span><br><span class="line"></span><br><span class="line">            // go down</span><br><span class="line">            for (i = up; i &lt;= down &amp;&amp; left &lt;= right; i++) &#123;</span><br><span class="line">                res.add(matrix[i][right]);</span><br><span class="line">            &#125;</span><br><span class="line">            right--;</span><br><span class="line"></span><br><span class="line">            //go left</span><br><span class="line">            for(j = right; j &gt;= left &amp;&amp; up &lt;= down; j--) &#123;</span><br><span class="line">                res.add(matrix[down][j]);</span><br><span class="line">            &#125;</span><br><span class="line">            down--;</span><br><span class="line"></span><br><span class="line">            //go up</span><br><span class="line">            for (i = down; i &gt;= up &amp;&amp; left &lt;= right; i--) &#123;</span><br><span class="line">                res.add(matrix[i][left]);</span><br><span class="line">            &#125;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-59-Spiral-Matrix-II"><a href="#LC-59-Spiral-Matrix-II" class="headerlink" title="LC 59 - Spiral Matrix II"></a>LC 59 - Spiral Matrix II</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int[][] generateMatrix(int n) &#123;</span><br><span class="line">        if (n &lt; 0) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        int[][] res = new int[n][n];</span><br><span class="line">        int startX = 0;</span><br><span class="line">        int startY = 0;</span><br><span class="line">        int num = 1;</span><br><span class="line">        while (n &gt; 0) &#123;</span><br><span class="line">            if (n == 1) &#123;</span><br><span class="line">                res[startX][startY] = num;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            //左上到右上</span><br><span class="line">            for (int i = 0; i &lt; n - 1; i++) &#123;</span><br><span class="line">                res[startX][startY + i] = num++;</span><br><span class="line">            &#125;</span><br><span class="line">            //从右上到右下</span><br><span class="line">            for (int i = 0; i &lt; n - 1; i++) &#123;</span><br><span class="line">                res[startX + i][startY + n - 1] = num++;</span><br><span class="line">            &#125;</span><br><span class="line">            //从右下到左下</span><br><span class="line">            for (int i = 0; i &lt; n - 1; i++) &#123;</span><br><span class="line">                res[startX + n - 1][startY + n - 1 - i] = num++;</span><br><span class="line">            &#125;</span><br><span class="line">            //从左下到左上</span><br><span class="line">            for (int i = 0; i &lt; n - 1; i++) &#123;</span><br><span class="line">                res[startX + n - 1 - i][startY] = num++;</span><br><span class="line">            &#125;</span><br><span class="line">            startX++;</span><br><span class="line">            startY++;</span><br><span class="line">            n = n - 2;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-74-Search-a-2D-matrix-Binary-Search"><a href="#LC-74-Search-a-2D-matrix-Binary-Search" class="headerlink" title="LC 74 - Search a 2D matrix(Binary Search)"></a>LC 74 - Search a 2D matrix(Binary Search)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public boolean searchMatrix(int[][] matrix, int target) &#123;</span><br><span class="line">        int row = matrix.length;</span><br><span class="line">        int col = matrix[0].length;</span><br><span class="line">        int len = row * col;</span><br><span class="line">        int start = 0;</span><br><span class="line">        int end = len - 1;</span><br><span class="line"></span><br><span class="line">        while (start + 1 &lt; end) &#123;</span><br><span class="line">            int mid = start + (end - start) / 2;</span><br><span class="line">            if (matrix[mid / col][mid % col] == target) return true;</span><br><span class="line">            if (matrix[mid / col][mid % col] &lt; target) &#123;</span><br><span class="line">                start = mid;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                end = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (matrix[start / col][start % col] == target) return true;</span><br><span class="line">        if (matrix[end / col][end % col] == target) return true;</span><br><span class="line"></span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-78-Subsets-backtracking-dfs"><a href="#LC-78-Subsets-backtracking-dfs" class="headerlink" title="LC 78 - Subsets (backtracking, dfs)"></a>LC 78 - Subsets (backtracking, dfs)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) &#123;</span><br><span class="line">List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">Arrays.sort(nums);</span><br><span class="line">backTrack(res, list, nums, 0);</span><br><span class="line">return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    public void backTrack(List&lt;List&lt;Integer&gt;&gt; res,</span><br><span class="line">                         List&lt;Integer&gt; list,</span><br><span class="line">                         int[] nums,</span><br><span class="line">                         int pos) &#123;</span><br><span class="line">        res.add(new ArrayList&lt;&gt;(list));</span><br><span class="line">        for (int i = pos; i &lt; nums.length; i++) &#123;</span><br><span class="line">            list.add(nums[i]);</span><br><span class="line">            backTrack(res, list , nums, i + 1);</span><br><span class="line">            list.remove(list.size() - 1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-79-Word-Search-dfs"><a href="#LC-79-Word-Search-dfs" class="headerlink" title="LC 79 - Word Search (dfs)"></a>LC 79 - Word Search (dfs)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public boolean exist(char[][] board, String word) &#123;</span><br><span class="line">if (board == null || board.length == 0 || board[0].length == 0 || board.length \* board[0].length &lt; word.length()) &#123;</span><br><span class="line">return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        if (word.length() == 0) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; board.length; i++) &#123;</span><br><span class="line">            for (int j = 0; j &lt; board[0].length; j++) &#123;</span><br><span class="line">                if (board[i][j] == word.charAt(0)) &#123;</span><br><span class="line">                    boolean res = dfs(board, i, j, word, 0);</span><br><span class="line">                    if (res) return true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean dfs(char[][] board, int i, int j, String word, int index) &#123;</span><br><span class="line">        //出口</span><br><span class="line">        if (index == word.length()) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (i &lt; 0 || i == board.length || j &lt; 0 || j == board[0].length || board[i][j] != word.charAt(index)) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        board[i][j] = &#x27;#&#x27;;</span><br><span class="line">        boolean res = dfs(board, i+1, j, word, index + 1) ||</span><br><span class="line">                    dfs(board, i-1, j, word, index + 1) ||</span><br><span class="line">                    dfs(board, i, j+1, word, index + 1) ||</span><br><span class="line">                    dfs(board, i, j-1, word, index + 1);</span><br><span class="line">        board[i][j] = word.charAt(index);</span><br><span class="line"></span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-102-Binary-Tree-Level-Order-Traversal-BFS"><a href="#LC-102-Binary-Tree-Level-Order-Traversal-BFS" class="headerlink" title="LC 102 - Binary Tree Level Order Traversal(BFS)"></a>LC 102 - Binary Tree Level Order Traversal(BFS)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();</span><br><span class="line">        Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();</span><br><span class="line">        queue.offer(root);</span><br><span class="line"></span><br><span class="line">        if (root == null) return res;</span><br><span class="line"></span><br><span class="line">        while (!queue.isEmpty()) &#123;</span><br><span class="line">            List&lt;Integer&gt; level = new ArrayList&lt;&gt;();</span><br><span class="line">            int size = queue.size();</span><br><span class="line">            for (int i = 0; i &lt; size; i++) &#123;</span><br><span class="line">                TreeNode head = queue.poll();</span><br><span class="line">                level.add(head.val);</span><br><span class="line">                if (head.left != null) &#123;</span><br><span class="line">                    queue.offer(head.left);</span><br><span class="line">                &#125;</span><br><span class="line">                if (head.right != null) &#123;</span><br><span class="line">                    queue.offer(head.right);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res.add(level);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-141-Linked-List-Cycle-fast-slow-pointers"><a href="#LC-141-Linked-List-Cycle-fast-slow-pointers" class="headerlink" title="LC 141 - Linked List Cycle(fast slow pointers)"></a>LC 141 - Linked List Cycle(fast slow pointers)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">public boolean hasCycle(ListNode head) &#123;</span><br><span class="line">if (head == null || head.next == null) &#123;</span><br><span class="line">return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head.next;</span><br><span class="line"></span><br><span class="line">        while (fast != slow) &#123;</span><br><span class="line">            if (fast == null || fast.next == null) &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-142-Linked-List-Cycle-II-find-the-entry-to-the-cycle"><a href="#LC-142-Linked-List-Cycle-II-find-the-entry-to-the-cycle" class="headerlink" title="LC 142 - Linked List Cycle II(find the entry to the cycle)"></a>LC 142 - Linked List Cycle II(find the entry to the cycle)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Solution &#123;</span><br><span class="line">public ListNode detectCycle(ListNode head) &#123;</span><br><span class="line">if (head == null || head.next == null) &#123;</span><br><span class="line">return null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head.next;</span><br><span class="line"></span><br><span class="line">        while (fast != slow) &#123;</span><br><span class="line">            if (fast == null || fast.next == null) &#123;</span><br><span class="line">                return null;</span><br><span class="line">            &#125;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        while (head != slow.next) &#123;</span><br><span class="line">            head = head.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-200-Number-of-Islands-DFS"><a href="#LC-200-Number-of-Islands-DFS" class="headerlink" title="LC 200 - Number of Islands(DFS)"></a>LC 200 - Number of Islands(DFS)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public int numIslands(char[][] grid) &#123;</span><br><span class="line">int count = 0;</span><br><span class="line"></span><br><span class="line">        if (grid == null || grid.length == 0 || grid[0].length == 0) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; grid.length; i++) &#123;</span><br><span class="line">            for (int j = 0; j &lt; grid[0].length; j++) &#123;</span><br><span class="line">                if (grid[i][j] == &#x27;1&#x27;) &#123;</span><br><span class="line">                    dfs(grid, i, j);</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void dfs(char[][] grid, int x, int y) &#123;</span><br><span class="line">        // exit</span><br><span class="line">        if (x &lt; 0 || x == grid.length || y &lt; 0 || y == grid[0].length || grid[x][y] == &#x27;0&#x27;) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        grid[x][y] = &#x27;0&#x27;;</span><br><span class="line">        dfs(grid, x + 1, y);</span><br><span class="line">        dfs(grid, x - 1, y);</span><br><span class="line">        dfs(grid, x, y + 1);</span><br><span class="line">        dfs(grid, x, y - 1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-283-Move-zeros-two-pointers"><a href="#LC-283-Move-zeros-two-pointers" class="headerlink" title="LC 283 - Move zeros(two pointers)"></a>LC 283 - Move zeros(two pointers)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public void moveZeroes(int[] nums) &#123;</span><br><span class="line">int cur = 0;</span><br><span class="line">int zeroPointer = 0;</span><br><span class="line">int len = nums.length;</span><br><span class="line"></span><br><span class="line">        while (cur &lt; len) &#123;</span><br><span class="line">            if (nums[cur] == 0) &#123;</span><br><span class="line">                int temp = nums[cur];</span><br><span class="line">                nums[cur] = nums[zeroPointer];</span><br><span class="line">                nums[zeroPointer] = temp;</span><br><span class="line">                zeroPointer++;</span><br><span class="line">            &#125;</span><br><span class="line">            cur++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="LC-1091-Shortest-Path-in-Binary-Matrix"><a href="#LC-1091-Shortest-Path-in-Binary-Matrix" class="headerlink" title="LC 1091 - Shortest Path in Binary Matrix"></a>LC 1091 - Shortest Path in Binary Matrix</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    private int[][] dirs = &#123;&#123;-1,0&#125;,&#123;-1,1&#125;,&#123;0,1&#125;,&#123;1,1&#125;,&#123;1,0&#125;,&#123;1,-1&#125;,&#123;0,-1&#125;,&#123;-1,-1&#125;&#125;;</span><br><span class="line">    public int shortestPathBinaryMatrix(int[][] grid) &#123;</span><br><span class="line">        int m = grid.length;</span><br><span class="line">        int n = grid[0].length;</span><br><span class="line"></span><br><span class="line">        if (grid[0][0] == 1 || grid[m - 1][n - 1] == 1) &#123;</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        boolean[][] visited = new boolean[m][n];</span><br><span class="line">        visited[0][0] = true;</span><br><span class="line">        Queue&lt;int[]&gt; queue = new LinkedList&lt;&gt;();</span><br><span class="line">        queue.offer(new int[]&#123;0, 0&#125;);</span><br><span class="line">        int ans = 0;</span><br><span class="line"></span><br><span class="line">        while(!queue.isEmpty()) &#123;</span><br><span class="line">            int size = queue.size();</span><br><span class="line">            for (int i = 0; i &lt; size; i++)&#123;</span><br><span class="line">                int[] pop = queue.poll();</span><br><span class="line">                if (pop[0] == m - 1 &amp;&amp; pop[1] == n - 1) &#123;</span><br><span class="line">                    return ans + 1;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                for (int k = 0; k &lt; 8; k++) &#123;</span><br><span class="line">                    int nextX = pop[0] + dirs[k][0];</span><br><span class="line">                    int nextY = pop[1] + dirs[k][1];</span><br><span class="line"></span><br><span class="line">                    if (nextX &gt;= 0 &amp;&amp; nextX &lt; m &amp;&amp; nextY &gt;= 0 &amp;&amp; nextY &lt; n &amp;&amp; !visited[nextX][nextY] &amp;&amp; grid[nextX][nextY] == 0) &#123;</span><br><span class="line">                        queue.offer(new int[]&#123;nextX, nextY&#125;);</span><br><span class="line">                        visited[nextX][nextY] = true;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">        return -1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">coding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/26/leetcode/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2021/10/26/java-interview/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java-interview
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/11/01/Amazon/Oasis/" class="archive-article-date">
+  	<time datetime="2021-11-01T20:25:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-01</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/11/01/Amazon/Oasis/">Oasis</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -401,8 +252,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
