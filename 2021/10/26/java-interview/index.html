@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>java-interview | Lewis Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java BasicsJava Primitive typePrimitive data types are predefined by the language and named by a keyword.8 types: byte, short, int, long, float, double, boolean, char Java Reference typeString, String">
+  <meta name="description" content="Java BasicsJava Primitive typePrimitive data types are predefined by the language and named by a keyword.8 types: byte, short, int, long, float, double, boolean, char Pass by value or by reference Jav">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java-interview">
 <meta property="og:url" content="http://example.com/2021/10/26/java-interview/index.html">
 <meta property="og:site_name" content="Lewis Blog">
-<meta property="og:description" content="Java BasicsJava Primitive typePrimitive data types are predefined by the language and named by a keyword.8 types: byte, short, int, long, float, double, boolean, char Java Reference typeString, String">
+<meta property="og:description" content="Java BasicsJava Primitive typePrimitive data types are predefined by the language and named by a keyword.8 types: byte, short, int, long, float, double, boolean, char Pass by value or by reference Jav">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/10/26/images/collection.png">
 <meta property="og:image" content="http://example.com/2021/10/26/images/hashMapTable.png">
 <meta property="og:image" content="http://example.com/2021/10/26/images/currenthashmap.png">
 <meta property="article:published_time" content="2021-10-27T04:55:44.000Z">
-<meta property="article:modified_time" content="2021-11-01T20:24:41.948Z">
+<meta property="article:modified_time" content="2021-11-01T23:00:57.041Z">
 <meta property="article:author" content="Lewis Zhang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2021/10/26/images/collection.png">
@@ -187,7 +187,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Java-Basics"><a href="#Java-Basics" class="headerlink" title="Java Basics"></a>Java Basics</h2><h3 id="Java-Primitive-type"><a href="#Java-Primitive-type" class="headerlink" title="Java Primitive type"></a>Java Primitive type</h3><p>Primitive data types are predefined by the language and named by a keyword.<br>8 types: byte, short, int, long, float, double, boolean, char</p>
-<h3 id="Java-Reference-type"><a href="#Java-Reference-type" class="headerlink" title="Java Reference type"></a>Java Reference type</h3><h3 id="String-StringBuilder-StringBuffer"><a href="#String-StringBuilder-StringBuffer" class="headerlink" title="String, StringBuilder, StringBuffer"></a>String, StringBuilder, StringBuffer</h3><ul>
+<h3 id="Pass-by-value-or-by-reference"><a href="#Pass-by-value-or-by-reference" class="headerlink" title="Pass by value or by reference"></a>Pass by value or by reference</h3><ul>
+<li>Java, pass by value</li>
+<li>For primitive type, the parameter is just the copy of the value</li>
+<li>For reference type, when we try to pass an object, we are just passing its address, which points to the real object info stored in the JVM heap</li>
+</ul>
+<h3 id="amp-equals"><a href="#amp-equals" class="headerlink" title="== &amp; equals()"></a>== &amp; equals()</h3><p>== 对于基本类型来说是值比较，对于引用类型来说是比较的是引用；而 equals 默认情况下是引用比较，只是很多类重新了 equals 方法，比如 String、Integer 等把它变成了值比较，所以一般情况下 equals 比较的是值是否相等。</p>
+<h3 id="String-StringBuilder-StringBuffer"><a href="#String-StringBuilder-StringBuffer" class="headerlink" title="String, StringBuilder, StringBuffer"></a>String, StringBuilder, StringBuffer</h3><ul>
 <li>String is immutable, StringBuilder and StringBuffer are mutable</li>
 <li>StringBuffer was introduced in Java 1.0, while Stringbuilder was introduced in Java 1.5</li>
 <li>StringBuffer is <strong>thread safe</strong> as it does not use synchronized key word</li>

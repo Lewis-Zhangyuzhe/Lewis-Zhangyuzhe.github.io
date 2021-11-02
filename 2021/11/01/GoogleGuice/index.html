@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Oasis | Lewis Blog</title>
+  <title>GoogleGuice | Lewis Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Day day up">
+  <meta name="description" content="Google GuiceIt is a lightweight java-based DI framework Every Java-based application has a few objects that work together to present what the user will see. When writing a complex java application, cl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Oasis">
-<meta property="og:url" content="http://example.com/2021/11/01/Amazon/Oasis/index.html">
+<meta property="og:title" content="GoogleGuice">
+<meta property="og:url" content="http://example.com/2021/11/01/GoogleGuice/index.html">
 <meta property="og:site_name" content="Lewis Blog">
-<meta property="og:description" content="Day day up">
+<meta property="og:description" content="Google GuiceIt is a lightweight java-based DI framework Every Java-based application has a few objects that work together to present what the user will see. When writing a complex java application, cl">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-01T20:25:28.000Z">
-<meta property="article:modified_time" content="2021-11-01T20:26:21.639Z">
+<meta property="article:published_time" content="2021-11-01T23:26:42.000Z">
+<meta property="article:modified_time" content="2021-11-02T00:30:53.709Z">
 <meta property="article:author" content="Lewis Zhang">
 <meta name="twitter:card" content="summary">
   
@@ -162,27 +162,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Amazon/Oasis" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-GoogleGuice" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Oasis
+      GoogleGuice
     </h1>
   
 
         
-        <a href="/2021/11/01/Amazon/Oasis/" class="archive-article-date">
-  	<time datetime="2021-11-01T20:25:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-01</time>
+        <a href="/2021/11/01/GoogleGuice/" class="archive-article-date">
+  	<time datetime="2021-11-01T23:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="Google-Guice"><a href="#Google-Guice" class="headerlink" title="Google Guice"></a>Google Guice</h2><h3 id="It-is-a-lightweight-java-based-DI-framework"><a href="#It-is-a-lightweight-java-based-DI-framework" class="headerlink" title="It is a lightweight java-based DI framework"></a>It is a lightweight java-based DI framework</h3><ul>
+<li>Every Java-based application has a few objects that work together to present what the user will see. When writing a complex java application, classes should be as independent as possible to increase the possibility to reuse these classes and to test them independently and easily. Dependency Injection helps gluing these classes together and at the same time keeping them independent.</li>
+</ul>
+<ol>
+<li>Create interface and implementation</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//spell checker interface</span><br><span class="line">interface SpellChecker &#123;</span><br><span class="line">   public void checkSpelling();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//spell checker implementation</span><br><span class="line">class SpellCheckerImpl implements SpellChecker &#123;</span><br><span class="line">   @Override</span><br><span class="line">   public void checkSpelling() &#123;</span><br><span class="line">      System.out.println(&quot;Inside checkSpelling.&quot; );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>Dependency injection is controlled by Guice binding in a module</p>
+</li>
+<li><p>In the binding module, we will bind the SpellChecker class to the actual SpellChecker implementation class.</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//Binding Module</span><br><span class="line">class TextEditorModule extends AbstractModule &#123;</span><br><span class="line">   @Override</span><br><span class="line">   protected void configure() &#123;</span><br><span class="line">      bind(SpellChecker.class).to(SpellCheckerImpl.class);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Create class with dependency</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class TextEditor &#123;</span><br><span class="line">   private SpellChecker spellChecker;</span><br><span class="line">   @Inject</span><br><span class="line">   public TextEditor(SpellChecker spellChecker) &#123;</span><br><span class="line">      this.spellChecker = spellChecker;</span><br><span class="line">   &#125;</span><br><span class="line">   public void makeSpellCheck()&#123;</span><br><span class="line">      spellChecker.checkSpelling();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>In the main class, create injector</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Injector injector = Guice.createInjector(new TextEditorModule());</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>Get object from the injector with dependency fulfilled</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TextEditor editor = injector.getInstance(TextEditor.class);</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>Use the object</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">editor.makeSpellCheck();</span><br></pre></td></tr></table></figure>
+
+<h3 id="Complete-example"><a href="#Complete-example" class="headerlink" title="Complete example"></a>Complete example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.google.inject.AbstractModule;</span><br><span class="line"><span class="keyword">import</span> com.google.inject.Guice;</span><br><span class="line"><span class="keyword">import</span> com.google.inject.Inject;</span><br><span class="line"><span class="keyword">import</span> com.google.inject.Injector;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuiceTester</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Injector injector = Guice.createInjector(<span class="keyword">new</span> TextEditorModule());</span><br><span class="line">      TextEditor editor = injector.getInstance(TextEditor.class);</span><br><span class="line">      editor.makeSpellCheck();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TextEditor</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> SpellChecker spellChecker;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Inject</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">TextEditor</span><span class="params">(SpellChecker spellChecker)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.spellChecker = spellChecker;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeSpellCheck</span><span class="params">()</span></span>&#123;</span><br><span class="line">      spellChecker.checkSpelling();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Binding Module</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TextEditorModule</span> <span class="keyword">extends</span> <span class="title">AbstractModule</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      bind(SpellChecker.class).to(SpellCheckerImpl.class);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//spell checker interface</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">SpellChecker</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkSpelling</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//spell checker implementation</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpellCheckerImpl</span> <span class="keyword">implements</span> <span class="title">SpellChecker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkSpelling</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Inside checkSpelling.&quot;</span> );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -261,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/01/Amazon/Oasis/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/01/GoogleGuice/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +318,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/11/01/Amazon/primeupdiscount/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/11/01/Junit-and-Mockito/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          primeupdiscount
+          Junit-and-Mockito
         
       </div>
     </a>
   
   
-    <a href="/2021/10/27/Veeva/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Veeva</div>
+    <a href="/2021/11/01/PrimeupDiscount/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PrimeupDiscount</div>
       <i class="icon-circle-right"></i>
     </a>
   
