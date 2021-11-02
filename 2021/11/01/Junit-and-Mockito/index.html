@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Junit-and-Mockito | Lewis Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Junit &amp; Mockito Junit   Junit is a test framework which uses annotations to identify methods to specify a test.   Mockito">
+  <meta name="description" content="Junit &amp; Mockito Junit   Junit is a test framework which uses annotations to identify methods to specify a test.   Mockito   Mockito is a mocking framework that makes writing test easier with clean">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Junit-and-Mockito">
 <meta property="og:url" content="http://example.com/2021/11/01/Junit-and-Mockito/index.html">
 <meta property="og:site_name" content="Lewis Blog">
-<meta property="og:description" content="Junit &amp; Mockito Junit   Junit is a test framework which uses annotations to identify methods to specify a test.   Mockito">
+<meta property="og:description" content="Junit &amp; Mockito Junit   Junit is a test framework which uses annotations to identify methods to specify a test.   Mockito   Mockito is a mocking framework that makes writing test easier with clean">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-02T00:31:41.000Z">
-<meta property="article:modified_time" content="2021-11-02T00:36:50.339Z">
+<meta property="article:modified_time" content="2021-11-02T07:15:53.948Z">
 <meta property="article:author" content="Lewis Zhang">
 <meta name="twitter:card" content="summary">
   
@@ -191,6 +191,31 @@
 <ol start="2">
 <li>Mockito</li>
 </ol>
+<ul>
+<li><p>Mockito is a mocking framework that makes writing test easier with clean&amp;simple API</p>
+</li>
+<li><p>use @Mock to create and inject mocked instances</p>
+</li>
+<li><p>stub method calls(doreturn…when…)</p>
+</li>
+<li><p>mock()/@Mock: create mock</p>
+<ul>
+<li>optionally specify how it should behave via Answer/MockSettings</li>
+<li>when()/given() to specify how a mock should behave</li>
+<li>If the provided answers don’t fit your needs, write one yourself extending the Answer interface</li>
+</ul>
+</li>
+<li><p>spy()/@Spy: partial mocking, real methods are invoked but still can be verified and stubbed</p>
+</li>
+<li><p>@InjectMocks: automatically inject mocks/spies fields annotated with @Spy or @Mock</p>
+</li>
+<li><p>verify(): to check methods were called with given arguments</p>
+<ul>
+<li>can use flexible argument matching, for example any expression via the any()</li>
+<li>or capture what arguments were called using @Captor instead</li>
+</ul>
+</li>
+</ul>
 
       
 
